@@ -1,0 +1,119 @@
+html {
+  position: relative;
+  font-size: 62.5%;
+  height: 100%;
+  width: 100%; 
+}
+
+body { 
+  width: auto;
+  height: 100%;
+  margin: 0 auto;
+}
+.header {
+   background-color: #fff;
+   height: 50px;
+   font-size: 1.5rem;
+}
+
+.clearfix:after{
+    content:"";
+    display: block;
+    clear: both;
+}
+ul{
+     margin: 0;
+     padding: 0;
+}
+li{
+    list-style: none;
+}
+
+.menu li{
+  display: table-cell;
+  text-align: center;
+}
+
+h1,h2,h3 {
+    text-align: center;
+    display: block;
+    font-size: 1.5em;
+    -webkit-margin-before: 0.83em;
+    -webkit-margin-after: 0.83em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    font-weight: bold;
+}
+.container{
+  width: auto;
+  position: relative;
+  margin: 0 auto;
+  min-height: 100%;
+}
+.image_area{
+    width: 100%;
+    bottom: 0;
+}
+
+.wrapper{
+  margin-top: 0px;
+}
+
+
+
+/*input.tweet_title_text {*/
+/*  border-radius: 10px;*/
+/*  box-shadow: inset 1px 4px 9px -6px rgba(0,0,0,0.5);*/
+/*  border: aliceblue;*/
+/*}*/
+
+.blog_content{
+  text-align: center;
+}
+
+.blogs {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+table {
+border: 1px #000000 solid;
+border-collapse: separate;
+border-spacing: 5px;
+}
+
+.all{
+   text-align: center;
+}
+
+.confirm_content{
+  text-align: center;
+}
+
+.box{
+    padding-top: 0.5em;
+    margin-bottom: 2em;
+    color: #FFF;
+    background: #71e43d;
+    border-bottom: solid 5px #3f87ce;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
+}
+
+footer{
+  width: 100%;
+  margin: 0;
+  bottom: 0;
+  position: fixed;
+  bottom: 0;
+  height: 60px;
+  background-color: #49ad1b;
+  display: table;
+}
+
+footer p {
+  font-size: 2rem;
+  color: #fff;
+  text-align: center;
+  vertical-align: middle;
+  display: table-cell;
+}

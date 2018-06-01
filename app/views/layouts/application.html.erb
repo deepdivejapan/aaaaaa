@@ -1,0 +1,49 @@
+    <!DOCTYPE html>
+<html>
+  <head>
+    <title>blog_app</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+    <div class="container">
+    <div class="clearfix:after">  
+      <nav class="navbar navbar-default">
+        <!--ここから下がハンバーガーメニューの描画↓↓-->
+        <button type="button" class="navbar-toggle collapsed"   
+        data-toggle="collapse" data-target="#gnavi">
+          <span class="sr-only">Bootstrap</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>  
+        <!--ここから上がハンバーガーメニューの描画-->
+        <a class="navbar-brand" href="/">HOME</a> <!--この部分が左側にあるロゴの部分-->
+      
+        <div id="gnavi" class="collapse navbar-collapse"> <!--ここからがメニューリストの部分-->
+          <ul class="nav navbar-nav">
+            <li class="col-sm"><%= link_to '新しく投稿する', new_blog_path %></li>
+            <li class="col-sm"><%= link_to '一覧を表示する', blogs_path %></li>
+          </ul>
+        </div>  
+      </nav>
+      
+      <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>">
+          <%= value %>
+        </div>
+      <% end %>
+      
+      <%= yield %>
+      
+      <footer>
+        <p>Copyright © 2018 ２月期生・Hajime Yasui</p>
+      </footer>
+    </div>  
+    </div>  
+  </body>
+</html>
+
+    
