@@ -4,7 +4,7 @@
   <div class="all">
      <ul class="row center-block">
       <% @blogs.each do |blog| %>
-        <li class= "box col-sm-6 col-sm-offset-1 col-sm-6">
+        <li class= "box col-md-6 col-sm-12 col-xs-12">
           <p>タイトル: <%= blog.title %></p>
           <p>内容： <%= blog.content %></p>
           <%=link_to '記事を読む', blog_path(blog.id) %>
