@@ -8,9 +8,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <div class="container">
-    <div class="clearfix:after">  
-      <nav class="navbar navbar-default">
+    <nav class="navbar navbar-default">
         <!--ここから下がハンバーガーメニューの描画↓↓-->
         <button type="button" class="navbar-toggle collapsed"   
         data-toggle="collapse" data-target="#gnavi">
@@ -29,7 +27,9 @@
           </ul>
         </div>  
       </nav>
-      
+    <div class="container">
+    <div class="clearfix:after">  
+
       <% flash.each do |key, value| %>
         <div class="alert alert-<%= key %>">
           <%= value %>
@@ -38,11 +38,11 @@
       
       <%= yield %>
       
-      <footer>
-        <p>Copyright © 2018 ２月期生・Hajime Yasui</p>
-      </footer>
     </div>  
-    </div>  
+    </div> 
+    <footer class="footer">
+        <p class="text-muted">2月期生・安井　一</p>
+    </footer>
   </body>
 </html>
 

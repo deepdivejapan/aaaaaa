@@ -30,5 +30,8 @@ input{
 .button{
    right: 0;
    position: relative;
-   padding-right: 15px;
+   padding-right: 45px;
+}
+.text-muted {
+    color: #f5f5f5;
 }
