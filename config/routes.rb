@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
+  get 'sessions/new'
+
   root to: 'blogs#top'
-    resources :blogs do
-  end
+  resources :blogs
+  resources :sessions, only: [:new, :create, :destroy]
+  resources :users
+
 end
