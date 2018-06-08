@@ -1,7 +1,8 @@
-Rails.application.routes.draw do
-  root to: 'blogs#top'
-    resources :blogs do
-    resources :users, only: [:new, :create, :show] do
-    end  
-    end
+class AddIndexToUsersEmail < ActiveRecord::Migration[5.1]
+  def change
+    add_index :users, :email, unique: true
+  end
 end
+
+20180606033753_add_index_to_users_email
+
