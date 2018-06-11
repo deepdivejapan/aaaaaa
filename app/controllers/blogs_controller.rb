@@ -20,7 +20,8 @@ class BlogsController < ApplicationController
   
   def create
    @blog = Blog.create(blog_params) 
-   if@blog.save
+   @blog.user_id = current_user.id
+   if @blog.save
     flash[:success] = "ブログを作成しました！"
     redirect_to blogs_path
    else
@@ -47,10 +48,12 @@ class BlogsController < ApplicationController
   end
   
   def destroy
-   @blog = Blog.find(params[:id])
-   @blog.destroy
-     flash[:success] ="ブログを削除しました！"
-   redirect_to blogs_path
+    if current_user
+      @blog = Blog.find(params[:id])
+      @blog.destroy
+        flash[:success] ="ブログを削除しました！"
+      redirect_to blogs_path
+    end
   end 
   
   def confirm
@@ -60,7 +63,7 @@ class BlogsController < ApplicationController
   
   private  
    def blog_params
-    params.require(:blog).permit(:title, :content)
+    params.require(:blog).permit(:title, :content, :user_id)
    end 
    def set_blog
    @blog = Blog.find(params[:id])
