@@ -22,6 +22,7 @@ class BlogsController < ApplicationController
    @blog = Blog.create(blog_params) 
    @blog.user_id = current_user.id
    if @blog.save
+    SampleMailer.send_blog_create(current_user).deliver
     flash[:success] = "ブログを作成しました！"
     redirect_to blogs_path
    else

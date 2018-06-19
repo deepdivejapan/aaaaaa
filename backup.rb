@@ -1,8 +1,18 @@
-class AddIndexToUsersEmail < ActiveRecord::Migration[5.1]
-  def change
-    add_index :users, :email, unique: true
+Rails.application.routes.draw do
+    if Rails.env.development?
+        mount LetterOpenerWeb::Engine, at: "/letter_opener"
+    end
+    #resource :contacts
+  
+    root 'blogs#top'
+    resources :blogs do
+    collection do
+    post :confirm
+
+    resources :users,only: [:new,:create,:show]
+    resources :sessions,only:[:new,:create,:destroy]
+    resources :favorites, only: [:create, :destroy]
+     
+    end
   end
 end
-
-20180606033753_add_index_to_users_email
-
