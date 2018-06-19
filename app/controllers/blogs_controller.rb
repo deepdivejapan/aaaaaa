@@ -19,7 +19,7 @@ class BlogsController < ApplicationController
   end  
   
   def create
-   @blog = Blog.create(blog_params) 
+   @blog = Blog.new(blog_params)
    @blog.user_id = current_user.id
    if @blog.save
     SampleMailer.send_blog_create(current_user).deliver
@@ -28,6 +28,8 @@ class BlogsController < ApplicationController
    else
     render'new'
    end 
+   
+   
   end
   
   def show
@@ -64,10 +66,11 @@ class BlogsController < ApplicationController
   
   private  
    def blog_params
-    params.require(:blog).permit(:title, :content, :user_id)
+    params.require(:blog).permit(:title, :content, :user_id,:image)
    end 
+   
    def set_blog
-   @blog = Blog.find(params[:id])
+     @blog = Blog.find(params[:id])
    end 
 end  
 

@@ -18,7 +18,17 @@
     <div class="blog_content">  
       <%= form.text_area :content, size: "120x10", placeholder: "内容" %>
     </div>
+    
+    <div class="field">
+      <%= form.label :image %>
+      <%= form.file_field :image, id: :feed_image %>
+    </div>
+  
+    
     <div class="button">
     <input type="submit" type="button" class="btn btn-success center-block"value="投稿する" data-disable-with="投稿中...">
     </div>
-  <% end %>
+    
+    
+    
+<% end %>
