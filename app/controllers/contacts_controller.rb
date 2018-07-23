@@ -7,35 +7,30 @@ class ContactsController < ApplicationController
     @contacts = Contact.all
   end
 
-  # GET /contacts/1
-  # GET /contacts/1.json
   def show
   end
 
   # GET /contacts/new
   def new
-    @contact = Contact.new
+    if params[:back]
+      @contact = Contact.new(contact_params)
+    else
+      @contact = Contact.new
+    end 
   end
 
   # GET /contacts/1/edit
   def edit
   end
 
-  # POST /contacts
-  # POST /contacts.json
   def create
     @contact = Contact.new(contact_params)
-
-    respond_to do |format|
-      if @contact.save
-        ContactMailer.contact_mail(@contact).deliver
-        format.html { redirect_to @contact, notice: 'Contact was successfully created.' }
-        format.json { render :show, status: :created, location: @contact }
-      else
-        format.html { render :new }
-        format.json { render json: @contact.errors, status: :unprocessable_entity }
-      end
-    end
+     if @contact.save
+      flash[:success] = "お問い合わせが完了しました"
+      redirect_to events_path
+     else
+      render'new'
+     end 
   end
 
   # PATCH/PUT /contacts/1
@@ -51,6 +46,10 @@ class ContactsController < ApplicationController
       end
     end
   end
+  
+  def confirm
+   @contact = Contact.new(contact_params)
+  end 
 
   # DELETE /contacts/1
   # DELETE /contacts/1.json

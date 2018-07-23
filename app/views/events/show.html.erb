@@ -1,0 +1,12 @@
+<h1>イベントの詳細</h1>
+
+  <div class="center">
+    <%= image_tag @event.image, :size =>'320x320' %>
+    <p>タイトル: <%= @event.title %></p>
+    <p>開催日: <%= @event.event_date %></p>
+    <p>場所: <%= @event.place %></p>
+    <div class="show_content"><%= @event.content %></div>
+    
+    <%= link_to '一覧に戻る', events_path %>
+  </div>
+  

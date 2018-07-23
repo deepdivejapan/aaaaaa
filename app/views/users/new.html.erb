@@ -9,23 +9,28 @@
           </ul>
         </div>
       <% end %>
-
-<%= form_with(model: @user, local: true) do |f| %>  
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-
-  <%= f.label :email %>
-  <%= f.email_field :email %>
-
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %>
-
-  <%= f.label :image %>
-  <%= f.file_field :image %>
   
-
-  <%= f.submit "Create my account" %>
-<% end %>
+  <div class="center">
+    <%= form_with(model: @user, local: true) do |f| %>  
+      <ul class="form_content">
+        <li class="event_form">
+          <%= f.text_field :name, size: "35" , placeholder: "名前"%>
+        </li>  
+        <li class="event_form">
+          <%= f.email_field :email, size: "35" , placeholder: "Email"  %>
+        </li>
+        <li class="event_form">
+          <%= f.text_field :capacity, size: "35" , placeholder: "ヨガの資格"  %>
+        </li>
+          <%= f.password_field :password, size: "35" , placeholder: "パスワード"  %>
+        <li class="event_form">
+          <%= f.password_field :password_confirmation, size: "35" , placeholder: "パスワードの確認" %>
+        </li> 
+        <h5>image</h5>
+          <%= f.file_field :image %>
+        <li class="event_form">
+          <br><%= f.submit "登録する" , class: "follow_submit btn btn-success center-block" %>
+        </li>  
+      </ul>  
+    <% end %>
+  </div>  

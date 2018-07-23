@@ -1,18 +1,5 @@
-Rails.application.routes.draw do
-    if Rails.env.development?
-        mount LetterOpenerWeb::Engine, at: "/letter_opener"
-    end
-    #resource :contacts
-  
-    root 'blogs#top'
-    resources :blogs do
-    collection do
-    post :confirm
-
-    resources :users,only: [:new,:create,:show]
-    resources :sessions,only:[:new,:create,:destroy]
-    resources :favorites, only: [:create, :destroy]
-     
-    end
+if params[:search].present?
+    @memos = @memos.search(params[:search]).where(user_id: current_user.id)
+  else
+    @memos = Memo.where(user_id: current_user.id)
   end
-end

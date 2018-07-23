@@ -1,4 +1,5 @@
-<%= form_with(model: contact, local: true) do |form| %>
+<%= form_with(model: @contact, local: true ,url: new_or_edit) do |form| %>
+
   <% if contact.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
@@ -10,23 +11,24 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :contact_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email, id: :contact_email %>
-  </div>
-
-  <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content, id: :contact_content %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+　　<div class="center">
+　　  <ul class="form_content">
+        <li class="event_form">
+          <%= form.text_field :name, size: "50", placeholder: "名前", id: :contact_name %>
+        </li>
+      
+        <li class="event_form">
+          <%= form.text_field :email, size: "50", placeholder: "Email", id: :contact_email %>
+        </li>
+      
+        <li class="event_form">
+          <%= form.text_area :content,size: "50x10", placeholder: "内容", id: :contact_content %>
+        </li>
+      
+        <div class="button">
+          <%= form.submit "送信する" , class: "follow_submit btn btn-success center-block" %>
+        </div>
+      </ul>  
+    </div>
+  
 <% end %>

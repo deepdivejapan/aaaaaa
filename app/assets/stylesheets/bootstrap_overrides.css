@@ -3,11 +3,11 @@
 }
 
 .label-default{
-    background-color:green;
+    background-color: #650404;
 }
 
 .navbar-default .navbar-collapse, .navbar-default .navbar-form{
-    background-color:#49ad1b;
+    background-color: #650404;
 }
 
 .navbar-default{
@@ -22,20 +22,122 @@ input{
     border: 1px #000000 solid;
 }
 
-.blog_title{
+input[type=file]{
+    display: inline;
+}
+
+.event_form{
     text-align: center;
     margin-bottom: 20px;
 }
 
-.blog_content{
-    position: relative;
+.event_content{
+    text-align: center;
+    margin-bottom: 20px;
+    color: #000;
 }
 
 .button{
    right: 0;
    position: relative;
    padding-right: 45px;
+   padding: 10px;
 }
 .text-muted {
     color: #f5f5f5;
+}
+
+.border{
+    box-shadow: 0 3px rgba(0, 0, 0, 0.25);
+}
+
+.app-header-inner{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 54px;
+    text-align: right;
+}
+
+.form-control{
+        width: 27%;
+        right:50%;
+}
+
+p {
+  margin: 0 0 1px;
+}
+
+.col-sm, .navbar-brand {
+    color: #fff;
+    text-shadow: 
+    black 2px 0px,  black -2px 0px,
+    black 0px -2px, black 0px 2px,
+    black 2px 2px , black -2px 2px,
+    black 2px -2px, black -2px -2px,
+    black 1px 2px,  black -1px 2px,
+    black 1px -2px, black -1px -2px,
+    black 2px 1px,  black -2px 1px,
+    black 2px -1px, black -2px -1px;
+}
+
+.alert{
+    margin-bottom: 0;
+}
+
+.navbar-default .navbar-brand{
+    color: #fff;
+}
+
+form{
+    height: 40%;
+    width: 60%; 
+    padding: 0;
+    margin-left: 20%;
+}
+
+.follow_submit {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+  background-color: #edefee;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+}
+ 
+ 
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+ 
+.container {
+  width: auto;
+  max-width: 680px;
+  padding: 0 15px;
+}
+.container .text-muted {
+  margin: 20px 0;
+  text-align: center;
+}
+
+a{
+  padding-left: 10px;
+}
+
+.btn{
+  border-radius: 15px;
 }

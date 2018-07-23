@@ -1,7 +1,7 @@
     <!DOCTYPE html>
 <html>
   <head>
-    <title>blog_app</title>
+    <title>FREE_YOGA</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -19,41 +19,40 @@
         </button>  
         <!--ここから上がハンバーガーメニューの描画-->
         <a class="navbar-brand" href="/">HOME</a> <!--この部分が左側にあるロゴの部分-->
-      
+        
+        
         <div id="gnavi" class="collapse navbar-collapse"> <!--ここからがメニューリストの部分-->
           <ul class="nav navbar-nav">
-            <li class="col-sm"><%= link_to '新しく投稿する', new_blog_path %></li>
-            <li class="col-sm"><%= link_to '一覧を表示する', blogs_path %></li>
-            
-
+            <li class="col-sm"><%= link_to 'イベント一覧', events_path %></li>
+          <div class="app-header-inner">
+            <% if logged_in? %>
+              <li class="col-sm"><%= link_to '新しく投稿する', new_event_path %></li>
+              <div class="col-sm"><%= link_to "Profile", user_path(current_user.id) %>
+              <%= link_to "Logout", session_path(current_user.id), method: :delete %></div>
+            <% else %>
+              <div class="col-sm"><%= link_to "ヨガインストラクターの登録", new_user_path %>
+                <%= link_to "Login", new_session_path %></div>
+            <% end %>
+          </div>
           </ul>
-        </div>  
-      </nav>
-    <div class="container">
-    <div class="clearfix:after">  
-
-      <% flash.each do |key, value| %>
-        <div class="alert alert-<%= key %>">
-          <%= value %>
         </div>
-      <% end %>
+      </nav>
       
-      <% if logged_in? %>
-        <%= link_to "Profile", user_path(current_user.id) %>
-        <%= link_to "Logout", session_path(current_user.id), method: :delete %>
-      <% else %>
-        <%= link_to "Sign up", new_user_path %>
-        <%= link_to "Login", new_session_path %>
-      <% end %>
-      
-      <%= link_to "お問い合わせ", new_contact_path %>
-      
-      <%= yield %>
-      
-    </div>  
-    </div> 
+    
+      <div class="clearfix:after">  
+        <% flash.each do |key, value| %>
+          <div class="alert alert-<%= key %>">
+            <%= value %>
+          </div>
+        <% end %>
+        <%= yield %>  
+      </div>  
+    
+    
     <footer class="footer">
-        <p class="text-muted">2月期生・安井　一</p>
+      <div class="container">
+        <p class="text-muted">2月期生・安井　一   <%= link_to "お問い合わせ", new_contact_path %></p>
+      </div> 
     </footer>
   </body>
 </html>

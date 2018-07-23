@@ -1,20 +1,41 @@
 Rails.application.routes.draw do
-  resources :feeds
-  resources :contacts
+  
+  get 'managers/index'
+
+  get 'managers/show'
+  
   get 'sessions/new'
 
-  root to: 'blogs#top'
-  resources :blogs do
-  collection do 
-  post :confirm  
-    
-  resources :sessions, only: [:new, :create, :destroy]
-  resources :users
-  resources :favorites, only: [:create, :destroy]
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  devise_for :managers
+  resources :contacts do
+    collection do
+      post :confirm
+    end  
+  end  
   
-  if Rails.env.development?
-    mount LetterOpenerWeb::Engine, at: "/inbox"
+  root to: 'events#index'
+  resources :events do
+    collection do 
+      post :confirm
+    end
+    
+    member do
+      post :confirm
+    end
   end
-  end
-  end
+    
+    resources :feeds
+    resources :sessions, only: [:new, :create, :destroy]
+    resources :users
+    resources :managers do 
+       collection do 
+         post :allow
+         post :back
+       end
+    end  
+    
+    if Rails.env.development?
+      mount LetterOpenerWeb::Engine, at: "/inbox"
+    end
 end

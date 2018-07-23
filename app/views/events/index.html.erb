@@ -1,0 +1,42 @@
+<%= notice %>
+  <header>
+    <div class="image_area">
+      <%= form_tag(events_path,:method => 'get') do %>
+      <%= text_field_tag :search, params[:search], placeholder: "場所を入力してください", :size =>'30' %>
+      <%= submit_tag '検索する', class: 'btn btn-primary', :name => nil %>
+      <% end %>
+    </div>  
+  </header>
+  
+  <% @events.each do |event| %>
+    <% if event.allow == true  %>
+      <div class= "box">
+          <div class="row">
+            <div class= "event_image col-md-6">
+              <%=image_tag event.image , :size =>'240x240' %>
+            </div>  
+          
+            
+              <div class="center event_list col-xs-6 col-md-6">
+                <h2><%=link_to event.title, event_path(event.id)  %></h2>
+                <h4><%= event.place %></h4>
+                <%= event.event_date %>
+                <br><%=link_to '記事を読む', event_path(event.id) %>
+              </div>  
+          </div>
+        
+          
+      <% if logged_in?  %>
+          <% if event.user.id == current_user.id %>
+            <button type="button" class="btn btn-warning" btn-sm><%= link_to "編集する", edit_event_path(event.id) %></button>
+            <button type="button" class="btn btn-danger" btn-sm><%= link_to '削除する', event_path(event.id),method: :delete ,data:{ confirm: '本当に削除してよろしいですか？'}  %></button>
+          <% end %>
+        <% else %>
+          <% link_to new_session_path %>
+      <% end %>
+    <% end %>
+      </div> 
+  <% end %> 
+  
+  
+
