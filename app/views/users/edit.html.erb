@@ -1,5 +1,6 @@
-<h3>Sign up</h3>
-      <% if @user.errors.any? %>
+<h2>Profileを編集する</h2>
+
+<% if @user.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(@user.errors.count, "error") %> prohibited this @user from being saved:</h2>
           <ul>
@@ -29,7 +30,7 @@
         <h5>image</h5>
           <%= f.file_field :image %>
         <li class="event_form">
-          <br><%= f.submit "登録する" , class: "follow_submit btn btn-success center-block" %>
+          <br><%= f.submit "編集する" , class: "follow_submit btn btn-success center-block" %>
         </li>  
       </ul>  
     <% end %>
