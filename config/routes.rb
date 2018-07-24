@@ -30,6 +30,7 @@ Rails.application.routes.draw do
     resources :users
     resources :managers do 
        collection do 
+         post "/sessions/manager" => "manager_session_path"
          post :allow
          post :back
        end
