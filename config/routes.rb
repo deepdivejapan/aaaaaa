@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   
   devise_scope :managers do
     post  "sessions/manager", to: 'devise/sessions#create'
-    # get 'managers/sign_out', to: 'devise/sessions#destroy'
+    get 'sign_out', to: 'devise/sessions#destroy'
   end
 
   resources :contacts do
