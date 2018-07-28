@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   
   
   devise_for :managers
+  as :manager do
+    get 'managers/edit', to: 'devise/registrations#edit', :as => 'edit_manager_registration'
+    put 'managers', to: 'devise/registrations#update', :as => 'manager_registration'
+  end
   
   devise_scope :managers do
     post  "sessions/manager", to: 'devise/sessions#create'

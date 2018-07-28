@@ -1,5 +1,6 @@
 class ManagersController < ApplicationController
   before_action :authenticate_manager!, only: [:index,:show,:allow,:back]
+  before_action :guard_signup!, only: [:cancel, :new, :destroy, :create, :edit, :update]
   
   def index
       @events = Event.all
@@ -37,6 +38,11 @@ class ManagersController < ApplicationController
      @events = Event.search(params[:search])
      redirect_to managers_index_path
    end 
+  
+   def guard_signup!
+    raise ActionController::RoutingError, 'NOT FOUND'
+   end
+  
    
   # def authenticate_manager!
   #   redirect_to events_path
