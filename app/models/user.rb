@@ -21,7 +21,7 @@ class User < ApplicationRecord
     validates :password, length: { minimum: 6 }
     has_many :events
     
-    validate :add_error_sample
+    validate :add_error_user
  
   
 end

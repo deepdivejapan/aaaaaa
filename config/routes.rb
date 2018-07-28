@@ -4,13 +4,12 @@ Rails.application.routes.draw do
 
   get 'managers/show'
   
-  get 'sessions/new'
-
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   
   devise_for :managers
+  
   devise_scope :managers do
     post  "sessions/manager", to: 'devise/sessions#create'
+    # get 'managers/sign_out', to: 'devise/sessions#destroy'
   end
 
   resources :contacts do
@@ -31,17 +30,15 @@ Rails.application.routes.draw do
   end
     
     resources :feeds
-    resources :sessions, only: [:new, :create, :destroy]
+    resources :user_sessions, only: [:new, :create, :destroy]
     resources :users
     resources :managers do 
        collection do 
-         
          post :allow
          post :back
        end
     end  
     
-   
     
     if Rails.env.development?
       mount LetterOpenerWeb::Engine, at: "/inbox"

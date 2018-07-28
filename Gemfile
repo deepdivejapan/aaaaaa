@@ -70,6 +70,4 @@ gem 'devise'
 
 gem "pundit"
 
-gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
-
 gem 'cancancan'

@@ -1,4 +1,5 @@
-module SessionsHelper
+module UserSessionsHelper
+    
   def current_user
     @current_user ||= User.find_by(id: session[:user_id]) 
   end
@@ -9,13 +10,13 @@ module SessionsHelper
   
   def login_check
     unless current_user
-      redirect_to new_session_path
+      redirect_to new_user_session_path
     end
   end  
   
   def reset_user_session
     if @current_user == nil
-      redirect_to new_session_path
+      redirect_to new_user_session_path
     end
   end
   
