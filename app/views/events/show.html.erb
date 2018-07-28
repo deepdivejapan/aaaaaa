@@ -2,6 +2,7 @@
 
   <div class="center">
     <%= image_tag @event.image, :size =>'320x320' %>
+    <p><%=link_to 'プロフィール',user_path(id: params[:id]) %></p>
     <p>タイトル: <%= @event.title %></p>
     <p>開催日: <%= @event.event_date %></p>
     <p>場所: <%= @event.place %></p>

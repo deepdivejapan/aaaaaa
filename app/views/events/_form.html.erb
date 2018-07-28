@@ -1,12 +1,14 @@
 <% if @event.errors.any? %>
+  <div class="center">
     <div id="error_explanation">
-      <h2><%= @event.errors.count %>件のエラーがあります。</h2>
+      <h4><%= @event.errors.count %>件のエラーがあります。</h4>
       <ul>
-    <% @event.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
+    <% @event.add_error_event.each do |msg| %>
+      <li><font color="#FF0000"><%= msg %></font></li>
       <% end %>
       </ul>
     </div>
+  </div>  
 <% end %>
 
     <%= form_with(model: @event, local: true ,url: choose_new_or_edit) do |form| %>
@@ -16,7 +18,7 @@
         </li>
         
         <li class="event_form">
-          <%= form.text_field :event_date, size: "50" , placeholder: "開催日" %>
+          <%= form.date_field :event_date, size:"70" , placeholder: "開催日" %>
         </li>
         
         <li class="event_form">

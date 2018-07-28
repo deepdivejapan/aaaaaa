@@ -1,7 +1,6 @@
 class EventsController < ApplicationController
-  before_action :set_event, only:[:edit,:update,:destroy]
-  before_action :login_check, only:[:new,:show,:edit,:destroy]
-  
+  before_action :set_event, only:[:edit,:update,:destroy,:show]
+  before_action :logged_in?, only:[:show]
   
   def index
    @events = Event.all

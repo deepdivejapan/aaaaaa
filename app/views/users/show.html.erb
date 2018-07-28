@@ -3,7 +3,10 @@
     <%= image_tag @user.image, :size =>'320x320' %>
     <p>資格: <%= @user.capacity %></p>
     <p>メールアドレス: <%= @user.email %></p>
-    <button type="button" class="btn btn-warning" btn-sm><%= link_to "編集する", edit_user_path(@user.id) %></button>
+    
+      <% if current_user %>
+        <button type="button" class="btn btn-warning" btn-sm><%= link_to "編集する", edit_user_path(@user.id) %></button>
+      <% end %>
   </div>  
       
         

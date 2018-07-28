@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :logged_in?, only:[:show]
+  
   def new
     if params[:back]
       @user = User.new(user_params)
@@ -23,6 +25,7 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
+    
   end
   
   def update

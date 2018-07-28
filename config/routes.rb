@@ -7,7 +7,12 @@ Rails.application.routes.draw do
   get 'sessions/new'
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  
   devise_for :managers
+  devise_scope :managers do
+    post  "sessions/manager", to: 'devise/sessions#create'
+  end
+
   resources :contacts do
     collection do
       post :confirm
@@ -30,11 +35,13 @@ Rails.application.routes.draw do
     resources :users
     resources :managers do 
        collection do 
-         post "/sessions/manager" => "manager_session_path"
+         
          post :allow
          post :back
        end
     end  
+    
+   
     
     if Rails.env.development?
       mount LetterOpenerWeb::Engine, at: "/inbox"
