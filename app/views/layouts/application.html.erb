@@ -3,8 +3,8 @@
   <head>
     <title>FREE_YOGA</title>
     <%= csrf_meta_tags %>
-    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -37,7 +37,8 @@
               <%= link_to "Logout", user_session_path(current_user.id), method: :delete %></div>
             <% else %>
               <div class="col-xs"><%= link_to "ヨガインストラクターの登録", new_user_path %>
-                <%= link_to "Login", new_user_session_path %></div>
+                <%= link_to "Login", new_user_session_path %>
+              </div>
             <% end %>
           </div>
           </ul>
