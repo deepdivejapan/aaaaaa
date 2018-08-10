@@ -3,7 +3,7 @@
     <div class="image_area visible-lg">
     </div>  
     
-    <form class="input-group small-devices form-inline">
+    <form class="input-group small-devices form-inline>
       <%= form_tag(events_path,:method => 'get') do %>
         <%= text_field_tag :search, params[:search], placeholder: "場所、開催日", :size =>'30' %>
         <%= submit_tag '検索する', class: 'btn btn-primary', :name => nil %>
