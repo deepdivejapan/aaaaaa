@@ -43,6 +43,7 @@ Rails.application.routes.draw do
        end
     end  
     
+    resource :about
     
     if Rails.env.development?
       mount LetterOpenerWeb::Engine, at: "/inbox"
