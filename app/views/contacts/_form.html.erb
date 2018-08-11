@@ -1,31 +1,30 @@
  <div class="input-group small-devices form-inline center-block"> 
  
-     <% if contact.errors.any? %>
+    <% if contact.errors.any? %>
       <div id="error_explanation">
         <ul class="center">
         <% contact.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+          <h5><font color="#FF0000"><%= message %></font></h5>
         <% end %>
         </ul>
       </div>
     <% end %>
-
    
     <%= simple_form_for (@contact) do |form| %>
       <li class="event_form">
-        <%= form.input :name%>
+        <%= form.input :name, label: false, error: false, placeholder: 'お名前'%>
       </li>
     
       <li class="event_form">
-        <%= form.input :email%>
+        <%= form.input :email, label: false, error: false, placeholder: 'email'%>
       </li>
     
       <li class="event_form">
-        <%= form.input :content%>
+        <%= form.input :content, label: false,error: false, placeholder: '内容'%>
       </li>
     
       <div class="button">
-        <%= form.submit "送信する" , class: "follow_submit btn btn-success center-block" %>
+      <input type="submit" type="button" class="far fa-envelope btn-success center-block"value="送信する &#xf0e0" data-disable-with="送信中...">
       </div>
     <% end %>
 </div>
