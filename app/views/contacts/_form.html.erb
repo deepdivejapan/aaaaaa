@@ -1,4 +1,4 @@
- <div class="center"> 
+ <div class="input-group small-devices form-inline center-block"> 
   <%= form_with(model: @contact, local: true ,url: new_or_edit) do |form| %>
     <% if contact.errors.any? %>
       <div id="error_explanation">
@@ -10,8 +10,7 @@
         </ul>
       </div>
     <% end %>
-  　　<div class="container input-group small-devices form-inline center-block">
-  　　  <ul class="row">
+  　　<div class="input-group small-devices form-inline center-block">
           <li class="event_form">
             <%= form.text_field :name, size: "50", placeholder: "名前", id: :contact_name %>
           </li>
