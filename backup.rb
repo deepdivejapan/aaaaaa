@@ -1,21 +1,33 @@
-class SessionsController < ApplicationController
-  def new
-  end
-  
-  def create
-    user = User.find_by(email: params[:session][:email].downcase) #データベースから該当するレコードを検索
-    if user && user.authenticate(params[:session][:password])
-       session[:user_id] = user.id
-       redirect_to user_path(user.id)
-      else
-        flash.now[:danger] = 'ログインに失敗しました'
-        render 'new'
-    end 
-  end  
-  
-  def destroy
-    session.delete(:user_id)
-    flash[:notice] = 'ログアウトしました'
-    redirect_to new_user_session_path
-  end
-end
+ <div class="input-group small-devices form-inline center-block"> 
+  <%= form_with(model: @contact, local: true ,url: new_or_edit) do |form| %>
+    <% if contact.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
+        <ul>
+        <% contact.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+  　　<div class="input-group small-devices form-inline center-block">
+          <li class="event_form">
+            <%= form.text_field :name, size: "50", placeholder: "名前", id: :contact_name %>
+          </li>
+        
+          <li class="event_form">
+            <%= form.text_field :email, size: "50", placeholder: "Email", id: :contact_email %>
+          </li>
+        
+          <li class="event_form">
+            <%= form.text_area :content,size: "50x10", placeholder: "内容", id: :contact_content %>
+          </li>
+        
+          <div class="button">
+            <%= form.submit "送信する" , class: "follow_submit btn btn-success center-block" %>
+          </div>
+        </ul>  
+      </div>
+    
+  <% end %>
+</div>
