@@ -5,7 +5,7 @@
     
     <form class="center-block input-group small-devices form-inline">
       <%= form_tag(events_path,:method => 'get') do %>
-        <%= text_field_tag :search, params[:search], placeholder: "場所、開催日", :size =>'40' %>
+        <%= text_field_tag :search, params[:search], placeholder: "場所、開催日", :size =>'20' %>
         <button type="submit" class="button1 fas fa-search"></button>
       <% end %>
     </form>  
