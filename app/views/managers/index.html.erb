@@ -2,7 +2,6 @@
   
     <li><%= link_to 'ログアウト', destroy_manager_session_path, method: :delete %></li>
 
-    <%= notice %>
       <header>
           <%= form_tag(events_path,:method => 'get') do %>
           <%= text_field_tag :search, '', placeholder: "例：東京、初心者、リラックス", :size =>'30' %>
@@ -38,6 +37,35 @@
           <% end %>  
         </div>    
       <% end %> 
-  
+      
+      
+      
+      
+ 
   
 
+  
+<h1>お問い合わせ一覧</h1>
+  <div class="box center">     
+    <table>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Content</th>
+          <th colspan="3"></th>
+        </tr>
+    
+      <tbody>
+        <% @contacts.each do |contact| %>
+          <tr>
+            <td><%= contact.name %></td>
+            <td><%= contact.email %></td>
+            <td><%= contact.content %></td>
+            <td><%= link_to 'Show', contact %></td>
+            <td><%= link_to 'Edit', edit_contact_path(contact) %></td>
+            <td><%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>

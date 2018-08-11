@@ -73,3 +73,5 @@ gem "pundit"
 gem 'cancancan'
 
 gem 'simple_form'
+
+gem 'kaminari'

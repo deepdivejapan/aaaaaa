@@ -1,9 +1,8 @@
  <div class="input-group small-devices form-inline center-block"> 
  
-    <% if contact.errors.any? %>
+     <% if contact.errors.any? %>
       <div id="error_explanation">
-        <h2><%= pluralize(contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
-        <ul>
+        <ul class="center">
         <% contact.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>

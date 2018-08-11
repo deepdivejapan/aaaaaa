@@ -5,6 +5,7 @@ class ManagersController < ApplicationController
   def index
       @events = Event.all
       @events = Event.search(params[:search])
+      @contacts = Contact.all
   end
 
   def show

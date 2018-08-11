@@ -10,22 +10,21 @@
         </div>
     <% end %>
 
-    <%= form_with(model: @event, local: true ,url: choose_new_or_edit) do |form| %>
-      <ul>
-        <li class="event_form">
-          <%= form.text_field :title, size: "50" , placeholder: "タイトル" %>
-        </li>
-        
+    <%= simple_form_for (@event) do |form| %>
         <li class="event_form">
           <%= form.date_field :event_date, size:"100" , placeholder: "開催日" %>
         </li>
         
         <li class="event_form">
-          <%= form.text_field :place, size: "50" , placeholder: "開催場所" %>
+          <%= form.input :title, size: "50" , placeholder: "タイトル" %>
         </li>
-      </ul>
+        
+        <li class="event_form">
+          <%= form.input :place, size: "50" , placeholder: "開催場所" %>
+        </li>
+  
         <li class="event_content">  
-          <%= form.text_area :content, size: "50x10", placeholder: "内容" %>
+          <%= form.input :content, size: "50x10", placeholder: "内容" %>
         </li>
       
     
