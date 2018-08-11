@@ -71,3 +71,5 @@ gem 'devise'
 gem "pundit"
 
 gem 'cancancan'
+
+gem 'simple_form'
