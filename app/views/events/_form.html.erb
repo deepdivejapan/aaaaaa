@@ -1,8 +1,7 @@
 <div class="input-group small-devices form-inline center-block">
     <% if @event.errors.any? %>
         <div id="error_explanation">
-          <h4><%= @event.errors.count %>件のエラーがあります。</h4>
-          <ul>
+          <ul class="center">
         <% @event.add_error_event.each do |msg| %>
           <li><font color="#FF0000"><%= msg %></font></li>
           <% end %>
@@ -12,7 +11,7 @@
 
     <%= simple_form_for (@event) do |form| %>
         <li class="event_form">
-          <%= form.date_field :event_date, size:"100" , placeholder: "開催日" %>
+        <p>Date:</p><%= form.date_field :event_date, size:"100"%>
         </li>
         
         <li class="event_form">
@@ -23,7 +22,7 @@
           <%= form.input :place, size: "50" , placeholder: "開催場所" %>
         </li>
   
-        <li class="event_content">  
+        <li class="event_form">  
           <%= form.input :content, size: "50x10", placeholder: "内容" %>
         </li>
       
