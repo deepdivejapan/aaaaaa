@@ -13,19 +13,19 @@
 
     <%= form_with(model: @event, local: true ,url: choose_new_or_edit) do |form| %>
       <ul>
-        <li class="event_form">
+        <li class="center">
           <%= form.text_field :title, size: "50" , placeholder: "タイトル" %>
         </li>
         
-        <li class="event_form">
+        <li class="center">
           <%= form.date_field :event_date, size:"100" , placeholder: "開催日" %>
         </li>
         
-        <li class="event_form">
+        <li class="center">
           <%= form.text_field :place, size: "50" , placeholder: "開催場所" %>
         </li>
       </ul>
-        <li class="event_content">  
+        <li class="center">  
           <%= form.text_area :content, size: "50x10", placeholder: "内容" %>
         </li>
       
