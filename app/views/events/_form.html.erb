@@ -8,34 +8,33 @@
           </ul>
         </div>
     <% end %>
-
-    <%= simple_form_for (@event) do |form| %>
-        <li class="event_form">
-          <%= form.date_field :event_date, size:"100", placeholder: 'mm/dd/yyyy'%>
+    <div class="box">
+      <%= bootstrap_form_for(@event, local: true, url: choose_new_or_edit) do |f|%>
+        <li class="center-block">
+          <%= f.date_select :event_date, placeholder: 'mm/dd/yyyy'%>
         </li>
         
-        <li class="event_form">
-          <%= form.input :title, label: false, error: false, placeholder: "タイトル" %>
+        <li class="form-group">
+          <%= f.text_field :title, label: false, error: false, placeholder: "タイトル" %>
         </li>
         
-        <li class="event_form">
-          <%= form.input :place, label: false, error: false, placeholder: "開催場所" %>
+        <li class="form-group">
+          <%= f.text_field :place, label: false, error: false, placeholder: "開催場所" %>
         </li>
   
-        <li class="event_form">  
-          <%= form.input :content, label: false, error: false, placeholder: "内容" %>
+        <li class="center-block">  
+          <%= f.text_field :content, size:"80x100",label: false, error: false, placeholder: "内容" %>
         </li>
       
-    
-      <div class="center">
-        <%= form.label :Image %>
-        <%= image_tag(@event.image) if @event.image %>
-        <center><%= form.file_field :image, :size =>'240x240', id: :image %></center>
-      </div>
-      
-      <div class="button">
-      <input type="submit" type="button" class="far fa-envelope btn-success center-block"value="投稿する &#xf0e0" data-disable-with="投稿中...">
-      </div>
+        <div class="center">
+          <%= image_tag(@event.image) if @event.image %>
+          <center><%= f.file_field :image, :size =>'240x240', id: :image %></center>
+        </div>
+        
+        <div class="button">
+        <input type="submit" type="button" class="far fa-envelope btn-success center-block"value="投稿する &#xf0e0" data-disable-with="投稿中...">
+        </div>
   
-    <% end %>
+      <% end %>
+    </div>  
 </div>

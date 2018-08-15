@@ -28,7 +28,7 @@
           </div>
           
           <% if logged_in?  %>
-            <% if event.user.id == current_user.id %>
+            <% if event.user == current_user %>
               <button type="button" class="btn btn-warning" btn-sm><%= link_to "編集する", edit_event_path(event.id) %></button>
               <button type="button" class="far fa-trash-alt btn btn-danger" btn-sm><%= link_to '削除する', event_path(event.id),method: :delete ,data:{ confirm: '本当に削除してよろしいですか？'}  %></button>
             <% end %>

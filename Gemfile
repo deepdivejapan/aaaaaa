@@ -75,3 +75,5 @@ gem 'cancancan'
 gem 'simple_form'
 
 gem 'kaminari'
+
+gem "bootstrap_form", ">= 4.0.0.alpha1"

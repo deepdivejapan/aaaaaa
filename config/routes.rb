@@ -27,10 +27,6 @@ Rails.application.routes.draw do
     collection do 
       post :confirm
     end
-    
-    member do
-      post :confirm
-    end
   end
     
     resources :feeds

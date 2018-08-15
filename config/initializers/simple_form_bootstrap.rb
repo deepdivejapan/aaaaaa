@@ -436,4 +436,16 @@ SimpleForm.setup do |config|
   #   range:         :custom_range,
   #   time:          :custom_multi_select
   # }
+  config.wrappers :bootstrap, :tag => 'div', :class => 'form-group', :error_class => 'has-error' do |b|
+    b.use :html5
+    b.use :placeholder
+    b.use :label
+    b.use :input, :wrap_with => { :tag => 'div', :class => 'controls col-xs-12 col-sm-12 col-md-12 col-lg-12' }
+    b.use :error, :wrap_with => { :tag => 'span', :class => 'help-block' }
+    b.use :hint,  :wrap_with => { :tag => 'p', :class => 'help-block' }
+  end
+  config.form_class = "form-horizontal"
+  config.label_class = "col-xs-12 col-sm-12 col-md-12 col-lg-12 control-label"
+  #config.input_class = "form-control" #not yet supported
+  config.default_wrapper = :bootstrap
 end
