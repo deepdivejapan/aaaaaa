@@ -31,15 +31,15 @@
             <li class="col-sm"><%= link_to 'イベント一覧', events_path %></li>
             <li class="col-sm"><%= link_to "お問い合わせ", new_contact_path %></li>
             
-          <div class="app-header-inner">
+          <div class="app-header-inner nav navbar-nav">
             <% if logged_in? %>
-              <li class="col-sm"><%= link_to '新しく投稿する', new_event_path %></li>
-              <div class="col-sm"><%= link_to "Profile", user_path(current_user.id) %>
-              <%= link_to "Logout", user_session_path(current_user.id), method: :delete %></div>
+              <li class="col-xs"><%= link_to '新しく投稿する', new_event_path %></li>
+              <li class="col-xs"><%= link_to "Profile", user_path(current_user.id) %></li>
+              <li class="col-xs"><%= link_to "Logout", user_session_path(current_user.id), method: :delete %></li>
             <% else %>
-              <div class="col-xs"><%= link_to "ヨガインストラクターの登録", new_user_path %>
-                <%= link_to "Login", new_user_session_path %>
-              </div>
+              <li class="col-xs"><%= link_to "ヨガインストラクターの登録", new_user_path %></li>
+              <li class="col-xs"><%= link_to "Login", new_user_session_path %></li>
+              
             <% end %>
           </div>
           </ul>

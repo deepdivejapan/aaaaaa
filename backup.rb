@@ -1,33 +1,17 @@
- <div class="input-group small-devices form-inline center-block"> 
-  <%= form_with(model: @contact, local: true ,url: new_or_edit) do |form| %>
-    <% if contact.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
-        <ul>
-        <% contact.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-        </ul>
-      </div>
-    <% end %>
-  　　<div class="input-group small-devices form-inline center-block">
-          <li class="event_form">
-            <%= form.text_field :name, size: "50", placeholder: "名前", id: :contact_name %>
-          </li>
-        
-          <li class="event_form">
-            <%= form.text_field :email, size: "50", placeholder: "Email", id: :contact_email %>
-          </li>
-        
-          <li class="event_form">
-            <%= form.text_area :content,size: "50x10", placeholder: "内容", id: :contact_content %>
-          </li>
-        
-          <div class="button">
-            <%= form.submit "送信する" , class: "follow_submit btn btn-success center-block" %>
-          </div>
-        </ul>  
-      </div>
-    
-  <% end %>
-</div>
+
+<form accept-charset="UTF-8" action="/users" class="new_user" id="new_user" method="post">
+  <div class="form-group">
+    <label for="user_email">Email</label>
+    <input class="form-control" id="user_email" name="user[email]" type="email">
+  </div>
+  <div class="form-group">
+    <label for="user_password">Password</label>
+    <input class="form-control" id="user_password" name="user[password]" type="password">
+  </div>
+  <div class="form-check">
+    <input name="user[remember_me]" type="hidden" value="0">
+    <input class="form-check-input" id="user_remember_me" name="user[remember_me]" type="checkbox" value="1">
+    <label class="form-check-label" for="user_remember_me">Remember me</label>
+  </div>
+  <input class="btn btn-secondary" name="commit" type="submit" value="Log In">
+</form>
