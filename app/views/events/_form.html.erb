@@ -12,23 +12,27 @@
       <%= bootstrap_form_for(@event, local: true, url: choose_new_or_edit) do |f|%>
         <li class="center-block">
           <%= f.date_select :event_date, placeholder: 'mm/dd/yyyy'%>
-        </li>
-        
-        <li class="form-group">
-          <%= f.text_field :title, label: false, error: false, placeholder: "タイトル" %>
-        </li>
-        
-        <li class="form-group">
           <%= f.text_field :place, label: false, error: false, placeholder: "開催場所" %>
         </li>
-  
+        
+        <li class="form-group">
+          <%= f.text_field :title, size:"80", label: false, error: false, placeholder: "タイトル" %>
+        </li>
+        
         <li class="center-block">  
-          <%= f.text_field :content, size:"80x100",label: false, error: false, placeholder: "内容" %>
+          <%= f.text_area :content, size:"80x20",label: false, error: false, placeholder: "内容" %>
         </li>
       
-        <div class="center-block">
-          <%= f.file_field :image, id: :image %>
-        </div>
+        <!--<div class="center-block">-->
+        <!--  <%= f.file_field :image, id: :image %>-->
+        <!--</div>-->
+        
+        <label>
+          <span class="btn btn-primary">
+              Choose File
+              <input type="file" style="display:none">
+          </span>
+        </label>
         
         <div class="button">
         <input type="submit" type="button" class="far fa-envelope btn-success center-block"value="投稿する &#xf0e0" data-disable-with="投稿中...">
