@@ -75,6 +75,7 @@ p {
 
 .col-sm, .navbar-brand {
     color: #fff;
+    padding-right: 1.5em;
     text-shadow: 
     black 2px 0px,  black -2px 0px,
     black 0px -2px, black 0px 2px,
