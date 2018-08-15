@@ -57,11 +57,11 @@ input[type=file]{
 }
 
 .app-header-inner{
-    display: flex;
+    /*display: flex;*/
     justify-content: space-between;
     align-items: center;
-    height: 54px;
-    text-align: right;
+    /*height: 54px;*/
+    text-align: center;
 }
 
 .form-control{
