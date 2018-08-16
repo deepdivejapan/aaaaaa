@@ -1,3 +1,6 @@
+    color: #99c7ef;
+
+
 
 <form accept-charset="UTF-8" action="/users" class="new_user" id="new_user" method="post">
   <div class="form-group">

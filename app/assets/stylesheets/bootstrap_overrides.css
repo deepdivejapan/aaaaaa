@@ -89,20 +89,27 @@ p {
     black 2px -1px, black -2px -1px;
 }
 .navbar-brand:hover{
-    text-shadow:  2px 0px 1px #fff;
-    text-decoration: underline dotted white;
+    text-shadow: 0px 2px 1px #fff,
+                     2px 0px 1px #fff;
 }
 
 .col-sm{
     color: #000;
-    text-shadow: 0px 2px 1px #000,
-                     2px 0px 1px #000;
+    text-shadow: 
+    black 2px 0px,  black -2px 0px,
+    black 0px -2px, black 0px 2px,
+    black 2px 2px , black -2px 2px,
+    black 2px -2px, black -2px -2px,
+    black 1px 2px,  black -1px 2px,
+    black 1px -2px, black -1px -2px,
+    black 2px 1px,  black -2px 1px,
+    black 2px -1px, black -2px -1px;
 }
 
 .col-sm:hover{
     color: black;
-    text-shadow: 2px 0px 1px #fff;
-    text-decoration: underline dotted white;
+    text-shadow: 0px 2px 1px #fff,
+                     2px 0px 1px #fff;
 }
 
 .alert{
@@ -155,10 +162,6 @@ a{
   padding-left: 10px;
 }
 
-.btn{
-  border-radius: 15px;
-}
-
 .navbar-collapse, .navbar-form{
     max-width: 100%;
     background-image: -webkit-linear-gradient(45deg, #709dff 0%, #91fdb7 100%);    
@@ -167,8 +170,6 @@ a{
 .col-xs:hover{
     text-shadow: 0px 2px 1px #fff,
                      2px 0px 1px #fff;
-    text-decoration: underline dotted white;
-   
 }
 
 .col-xs{
@@ -199,9 +200,28 @@ a{
 .navbar-collapse{
     padding-right: 20px;
     padding-left: 20px;
+    text-align: center;
 }
 
-.navbar-brand:hover{
-    color:#E48E00;
-    text-decoration:underline;
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+
+.imagePreview {
+    width: 90%;
+    height: 180px;
+    background-position: center center;
+    background-size: cover;
+    -webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, .3);
+    display: inline-block;
+}
+
+label{
+    padding-top: 10px;
+}
+
+.btn-success {
+    font-weight: bold;
+    padding: 7px;
 }

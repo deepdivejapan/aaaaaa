@@ -29,7 +29,6 @@
           <ul class="nav navbar-nav">
             <li class="col-sm"><%= link_to "このサイトについて", about_path %></li>
             <li class="col-sm"><%= link_to 'イベント一覧', events_path %></li>
-            <li class="col-sm"><%= link_to "お問い合わせ", new_contact_path %></li>
             
           <div class="app-header-inner nav navbar-nav">
             <% if logged_in? %>
@@ -40,6 +39,7 @@
               <li class="col-xs"><%= link_to "ヨガインストラクターの登録", new_user_path %></li>
               <li class="col-xs"><%= link_to "Login", new_user_session_path %></li>
             <% end %>
+            <li class="col-sm"><%= link_to "お問い合わせ", new_contact_path %></li>
           </div>
           </ul>
         </div>
