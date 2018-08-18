@@ -28,6 +28,10 @@ class Event < ApplicationRecord
     end
   end
   
+  paginates_per 5
+  
+  validate :add_error_event
+  
 end
   
   

@@ -10,7 +10,6 @@
       <% end %>
     </form>  
   </header>
-  
   <% @events.each do |event| %>
     <% if event.allow == true  %>
       <div class= "container-fluid visible-xs visible-md visible-sm">
@@ -62,5 +61,7 @@
         </div>
     <% end %>
   <% end %> 
-  
-
+  <div class="center">
+  <%= page_entries_info @events %>
+  <%= paginate @events %>
+  </div>

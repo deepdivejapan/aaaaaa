@@ -1,26 +1,20 @@
 <div class="input-group small-devices form-inline center-block">
-    <% if @event.errors.any? %>
-        <div id="error_explanation">
           <ul class="center">
-        <% @event.add_error_event.each do |msg| %>
-          <li><font color="#FF0000"><%= msg %></font></li>
-          <% end %>
+        <% @event.errors.full_messages.each do |msg| %>
+          <li><font color="#FF0000"></font></li>
+        <% end %>
           </ul>
-        </div>
-    <% end %>
+    
     <div class="event-box">
       <%= bootstrap_form_for(@event, local: true, url: choose_new_or_edit) do |f|%>
         <div class="imagePreview"></div>
           <div class="input-group">
-              <label class="input-group-btn">
-                  <span class="btn btn-info">
-                      画像を選択する<input type="file" style="display:none" class="uploadFile">
-                  </span>
-              </label>
+            <%= image_tag(@event.image) if @event.image %>
+              <%= f.file_field :image, :size =>'240x240', id: :image %>
           </div>
         
         <li class="center-block">
-          <%= f.date_select :event_date, placeholder: 'mm/dd/yyyy'%>
+          <%= f.date_field :event_date, placeholder: 'mm/dd/yyyy'%>
           <%= f.text_field :place, label: false, error: false, placeholder: "開催場所" %>
         </li>
         

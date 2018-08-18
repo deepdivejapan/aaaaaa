@@ -1,12 +1,12 @@
 <h3>以下の内容で、送信する。</h3>
 
   <div class="center">
-    <%= form_with(model: @event,url: events_path,local:true)do |form|%>
-      <%= form.hidden_field:title %>
-      <%= form.hidden_field:content %>
-      <%= form.hidden_field:place %>
-      <%= form.hidden_field:event_date %>
-      <%= form.hidden_field:image_cache, :size =>'320x320' %>
+    <%= bootstrap_form_for(@event,url: events_path,local:true)do |f|%>
+      <%= f.hidden_field:title %>
+      <%= f.hidden_field:content %>
+      <%= f.hidden_field:place %>
+      <%= f.hidden_field:event_date %>
+      <%= f.hidden_field:image_cache, :size =>'320x320' %>
          
       <%= image_tag @event.image , :size =>'320x320' %>
       <h4><%= @event.title %></h4>
@@ -15,15 +15,17 @@
       <h5><%= @event.content %></h5>
       
     
-      <%= form.submit "送信する" %>
+      <%= f.submit "送信する" %>
     <% end %>
     
-    <%= form_with(model: @event, url: new_event_path, local: true,method: 'get')do |form| %>
-      <%= form.hidden_field :title %>
-      <%= form.hidden_field :content %>
-      <%= form.hidden_field :image_cache %>
+    <%= bootstrap_form_for(@event, url: new_event_path, local: true,method: 'get')do |f| %>
+      <%= f.hidden_field :title %>
+      <%= f.hidden_field :content %>
+      <%= f.hidden_field:place %>
+      <%= f.hidden_field:event_date %>
+      <%= f.hidden_field :image_cache %>
       
-      <%= form.submit "戻る", name: 'back' %>
+      <%= f.submit "戻る", name: 'back' %>
     <% end %>  
   </div>    
     

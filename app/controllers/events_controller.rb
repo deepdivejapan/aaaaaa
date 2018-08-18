@@ -5,6 +5,7 @@ class EventsController < ApplicationController
   def index
    @events = Event.all
    @events = Event.search(params[:search])
+   @events = Event.page(params[:page]).per(5)
   end
   
   def new
@@ -33,6 +34,7 @@ class EventsController < ApplicationController
   
   def edit
    @event = Event.find(params[:id])
+   @event.image.cache! unless @event.image.blank?
   end
   
   def update
@@ -62,7 +64,7 @@ class EventsController < ApplicationController
   
   private  
    def event_params
-    params.require(:event).permit(:title, :place, :event_date, :content, :user_id, :image, :image_cache, :allow)
+    params.require(:event).permit(:title, :place, :event_date, :content, :user_id, :image, :image_cache,{image: []}, :allow)
    end 
    
    def set_event

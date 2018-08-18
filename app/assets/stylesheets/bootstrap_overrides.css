@@ -225,3 +225,7 @@ label{
     font-weight: bold;
     padding: 7px;
 }
+
+.invalid-feedback{
+    color: #FF0000;
+}
