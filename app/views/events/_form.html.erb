@@ -14,7 +14,7 @@
           </div>
         
         <li class="center-block">
-          <%= f.date_field :event_date,value: Time.now.strftime("%Y-%m-%d")%>
+          <%= f.date_field :event_date%>
           <%= f.text_field :place, label: false, error: false, placeholder: "開催場所" %>
         </li>
         
@@ -27,7 +27,7 @@
         </li>
         
         <div class="button">
-        <input type="submit" type="button" class="far fa-envelope btn-success center-block"value="投稿する &#xf0e0" data-disable-with="投稿中...">
+        <input type="submit" type="button" class="far fa-envelope btn-success center-block"value="投稿する &#xf0e0">
         </div>
   
       <% end %>

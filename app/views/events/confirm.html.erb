@@ -13,9 +13,10 @@
       <h5><%= @event.event_date %></h5>
       <h5><%= @event.place %></h5>
       <h5><%= @event.content %></h5>
-      
     
-      <%= f.submit "送信する" %>
+      <div class="button">
+        <input type="submit" type="button" class="far fa-envelope btn-success center-block"value="投稿する &#xf0e0" data-disable-with="投稿中...">
+      </div>
     <% end %>
     
     <%= bootstrap_form_for(@event, url: new_event_path, local: true,method: 'get')do |f| %>
@@ -26,6 +27,7 @@
       <%= f.hidden_field :image_cache %>
       
       <%= f.submit "戻る", name: 'back' %>
+    
     <% end %>  
   </div>    
     
