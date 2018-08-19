@@ -46,7 +46,7 @@ input[type=file]{
    right: 0;
    position: relative;
    padding-right: 45px;
-   padding: 10px;
+   padding: 3px;
 }
 .text-muted {
     color: #f5f5f5;
