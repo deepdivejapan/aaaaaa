@@ -8,9 +8,9 @@
     <div class="event-box">
       <%= bootstrap_form_for(@event, local: true, url: choose_new_or_edit) do |f|%>
         <div class="imagePreview"></div>
-          <div class="input-group">
+          <div class="input-group center-block">
             <%= image_tag(@event.image) if @event.image %>
-              <%= f.file_field :image, :size =>'240x240', id: :image %>
+              <%= f.file_field :image, id: :image %>
           </div>
         
         <li class="center-block">

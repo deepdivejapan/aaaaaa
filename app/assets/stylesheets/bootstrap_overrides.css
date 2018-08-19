@@ -229,3 +229,15 @@ label{
 .invalid-feedback{
     color: #FF0000;
 }
+
+.custom-file-input{
+    width: 200px;
+    visibility: none;
+}
+
+.custom-file-label,label,.translation_missing{
+    display: none;
+}
+img{
+    max-width: 100%;
+}
