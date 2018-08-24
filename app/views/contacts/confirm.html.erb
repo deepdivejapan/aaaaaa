@@ -5,12 +5,13 @@
       <%= f.hidden_field:name %>
       <%= f.hidden_field:email %>
       <%= f.hidden_field:content %>
-         
-      <h4><%= @contact.name %></h4>
-      <h5><%= @contact.email %></h5>
-      <h5><%= @contact.content %></h5>
-      
-      <%= f.submit "送信する" %>
+    <div class="event-box">     
+      <div class="event_list"><h4><%= @contact.name %></h4></div> 
+      <div class="event_list"><h5><%= @contact.email %></h5></div> 
+      <div class="event_list"><h5><%= @contact.content %></h5></div> 
+    </div>   
+      <!--<%= f.submit "送信する" %>-->
+      <input type="submit" type="button" class="far fa-envelope btn-success center-block"value="送信する &#xf0e0" data-disable-with="送信中...">
     <% end %>
     
     <%= bootstrap_form_for(@contact, url: new_contact_path, local: true,method: 'get')do |f| %>
