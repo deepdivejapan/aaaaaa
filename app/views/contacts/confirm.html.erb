@@ -1,7 +1,7 @@
 <h3>以下の内容で、送信する。</h3>
 
   <div class="center">
-     <%= bootstrap_form_for(@contact,url: events_path,local:true)do |f|%>
+     <%= bootstrap_form_for(@contact,local:true)do |f|%>
       <%= f.hidden_field:name %>
       <%= f.hidden_field:email %>
       <%= f.hidden_field:content %>

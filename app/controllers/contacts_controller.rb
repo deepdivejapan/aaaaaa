@@ -1,8 +1,6 @@
 class ContactsController < ApplicationController
   before_action :set_contact, only: [:show, :edit, :update, :destroy]
 
-  # GET /contacts
-  # GET /contacts.json
   def index
     @contacts = Contact.all
   end
@@ -12,6 +10,7 @@ class ContactsController < ApplicationController
 
   # GET /contacts/new
   def new
+    @contact = Contact.new
     if params[:back]
       @contact = Contact.new(contact_params)
     else
@@ -19,7 +18,6 @@ class ContactsController < ApplicationController
     end 
   end
 
-  # GET /contacts/1/edit
   def edit
     @contact = Contact.find(contact_params)
   end
@@ -28,14 +26,13 @@ class ContactsController < ApplicationController
     @contact = Contact.new(contact_params)
      if @contact.save
       flash[:success] = "お問い合わせが完了しました"
-      redirect_to events_path
+      redirect_to new_contact_path
      else
       render'new'
      end 
   end
 
-  # PATCH/PUT /contacts/1
-  # PATCH/PUT /contacts/1.json
+ 
   def update
     respond_to do |format|
       if @contact.update(contact_params)
@@ -62,7 +59,7 @@ class ContactsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+   
     def set_contact
       @contact = Contact.find(params[:id])
     end
