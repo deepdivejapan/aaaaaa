@@ -5,6 +5,7 @@ class ManagersController < ApplicationController
   def index
       @events = Event.all
       @events = Event.search(params[:search])
+      @events = Event.page(params[:page]).per(5)
       @contacts = Contact.all
   end
 
@@ -16,6 +17,7 @@ class ManagersController < ApplicationController
     @event = Event.find(params[:id])
     @event.allow = true
     @event.save
+    SampleMailer.send_event_create(current_user).deliver
     flash[:success] = "イベントを承認しました！"
     redirect_to managers_index_path
   end  
@@ -37,7 +39,7 @@ class ManagersController < ApplicationController
    def search
    #ViewのFormで取得したパラメータをモデルに渡す
      @events = Event.search(params[:search])
-     redirect_to managers_index_path
+    #  redirect_to managers_index_path
    end 
   
    def guard_signup!

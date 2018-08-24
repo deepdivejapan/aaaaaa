@@ -37,18 +37,21 @@
           <% end %>  
         </div>    
       <% end %> 
-      
+      <div class="center">
+        <%= page_entries_info @events, entry_name: "Records" %>
+        <%= paginate @events %>
+      </div>
 
   
-<h1>お問い合わせ一覧</h1>
-  <div class="box center">     
-    <table>
-        <tr>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Content</th>
-          <th colspan="3"></th>
-        </tr>
+    <h1>お問い合わせ一覧</h1>
+      <div class="box center">     
+        <table>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Content</th>
+              <th colspan="3"></th>
+            </tr>
     
       <tbody>
         <% @contacts.each do |contact| %>
