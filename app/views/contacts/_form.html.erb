@@ -1,26 +1,16 @@
  <div class="input-group small-devices form-inline center-block"> 
  
-    <% if contact.errors.any? %>
-      <div id="error_explanation">
-        <ul class="center">
-        <% contact.errors.full_messages.each do |message| %>
-          <h5><font color="#FF0000"><%= message %></font></h5>
-        <% end %>
-        </ul>
-      </div>
-    <% end %>
-   
-    <%= simple_form_for (@contact) do |form| %>
+    <%= bootstrap_form_for(@contact, local: true, url: contact_new_or_edit) do |f|%>
       <li class="event_form">
-        <%= form.input :name, label: false, error: false, placeholder: 'お名前'%>
+        <%= f.text_field :name, size:"80", label: false, error: false, placeholder: "お名前" %>
       </li>
     
       <li class="event_form">
-        <%= form.input :email, label: false, error: false, placeholder: 'email'%>
+        <%= f.text_field :email, size:"80", label: false, error: false, placeholder: "メールアドレス" %>
       </li>
     
       <li class="event_form">
-        <%= form.input :content, label: false,error: false, placeholder: '内容'%>
+        <%= f.text_area :content, size:"80x10",label: false, error: false, placeholder: "内容" %>
       </li>
     
       <div class="button">

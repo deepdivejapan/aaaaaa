@@ -21,6 +21,7 @@ class ContactsController < ApplicationController
 
   # GET /contacts/1/edit
   def edit
+    @contact = Contact.find(contact_params)
   end
 
   def create
@@ -49,10 +50,9 @@ class ContactsController < ApplicationController
   
   def confirm
    @contact = Contact.new(contact_params)
+   render :new if @contact.invalid?
   end 
 
-  # DELETE /contacts/1
-  # DELETE /contacts/1.json
   def destroy
     @contact.destroy
     respond_to do |format|
@@ -67,7 +67,6 @@ class ContactsController < ApplicationController
       @contact = Contact.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def contact_params
       params.require(:contact).permit(:name, :email, :content)
     end

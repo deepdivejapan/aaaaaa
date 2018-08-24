@@ -8,22 +8,20 @@
     <div class="event-box">
       <%= bootstrap_form_for(@event, local: true, url: choose_new_or_edit) do |f|%>
         <div class="imagePreview"></div>
-          <div class="input-group center-block">
+          <div class="input-group center-block event_form">
             <%= image_tag(@event.image) if @event.image %>
               <%= f.file_field :image, id: :image %>
           </div>
         
-        <div class="center-block">
+        <div class="event_form">
           <%= f.date_field :event_date,value: Time.now.strftime("%Y-%m-%d")%>
           <%= f.text_field :place, label: false, error: false, placeholder: "開催場所" %>
         </div>
         
-        <div class="form-group">
-          <%= f.text_field :title, size:"80", label: false, error: false, placeholder: "タイトル" %>
-        </div>
-        
-        <div class="center-block">  
-          <%= f.text_area :content, size:"80x10",label: false, error: false, placeholder: "内容" %>
+        <div class="event_form">
+          <%= f.text_field :title, size:"80", label: false, error: false, placeholder: "タイトルを入力" %>
+          
+          <%= f.text_area :content, size:"80x10",label: false, error: false %>
         </div>
         
         <div class="button">
