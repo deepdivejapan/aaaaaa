@@ -13,7 +13,7 @@
       <%= f.submit "送信する" %>
     <% end %>
     
-    <%= bootstrap_form_for(@conact, url: new_contact_path, local: true,method: 'get')do |f| %>
+    <%= bootstrap_form_for(@contact, url: new_contact_path, local: true,method: 'get')do |f| %>
       <%= f.hidden_field :name %>
       <%= f.hidden_field:email %>
       <%= f.hidden_field :content %>

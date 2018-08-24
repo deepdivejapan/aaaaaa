@@ -31,8 +31,9 @@ input[type=file]{
 .event_form{
     max-width: 100%;
     text-align: center;
-    margin-bottom: 20px;
     box-sizing:border-box;
+    padding-right: 10px;
+    padding-left: 10px;
 }
 
 .event_content{
@@ -240,13 +241,21 @@ label{
 img{
     max-width: 100%;
 }
-.textarea{
-    width:750px;
-    height:300px;
-    margin-left:calc((100vw - 750px) / 2);
-    margin-top:calc((100vh - 300px) / 2);
-    text-align: center;
-    border-radius:10px;   
-    font-size:30px;
-    border:solid 2px #BDBDBD;
+/*.textarea{*/
+/*    width:750px;*/
+/*    height:300px;*/
+/*    margin-left:calc((100vw - 750px) / 2);*/
+/*    margin-top:calc((100vh - 300px) / 2);*/
+/*    text-align: center;*/
+/*    border-radius:10px;   */
+/*    font-size:30px;*/
+/*    border:solid 2px #BDBDBD;*/
+/*}*/
+
+.input-group .form-control, .input-group-addon, .input-group-btn{
+    margin-bottom: 10px;
+}
+
+.form-inline .input-group{
+    margin-bottom: 10px;
 }
