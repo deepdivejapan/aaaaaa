@@ -20,7 +20,8 @@ class EventsController < ApplicationController
    @event = Event.new(event_params)
    @event.user_id = current_user.id
    if @event.save
-    flash[:success] = "イベントが作成されました。承認されると一覧に表示されます。"
+    SampleMailer.send_event_create(current_user).deliver
+    flash[:success] = "イベントが作成されました"
     redirect_to events_path
    else
     render'new'

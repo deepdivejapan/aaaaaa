@@ -7,6 +7,7 @@ class ManagersController < ApplicationController
       @events = Event.search(params[:search])
       @events = Event.page(params[:page]).per(5)
       @contacts = Contact.all
+      @contacts = Contact.page(params[:page]).per(5)
   end
 
   def show
@@ -17,7 +18,6 @@ class ManagersController < ApplicationController
     @event = Event.find(params[:id])
     @event.allow = true
     @event.save
-    SampleMailer.send_event_create(current_user).deliver
     flash[:success] = "イベントを承認しました！"
     redirect_to managers_index_path
   end  
@@ -29,6 +29,13 @@ class ManagersController < ApplicationController
     flash[:success] = "イベントを元に戻しました！"
     redirect_to managers_index_path
   end  
+  
+  def destroy
+      @event = Event.find(params[:id])
+      @event.destroy
+        flash[:success] ="イベントを削除しました！"
+      redirect_to managers_path
+  end 
   
   
   private  

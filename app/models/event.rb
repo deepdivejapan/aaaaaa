@@ -32,6 +32,8 @@ class Event < ApplicationRecord
   
   validate :add_error_event
   
+  default_scope -> { order(created_at: :desc) }
+  
 end
   
   

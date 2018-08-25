@@ -12,4 +12,6 @@ class Manager < ApplicationRecord
   end
   
   paginates_per 5
+  
+  default_scope -> { order(created_at: :desc) }
 end

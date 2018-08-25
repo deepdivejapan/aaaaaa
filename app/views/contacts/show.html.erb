@@ -1,19 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<p>
+<div class="event-box center center-block">
   <strong>Name:</strong>
   <%= @contact.name %>
-</p>
-
 <p>
   <strong>Email:</strong>
   <%= @contact.email %>
 </p>
-
 <p>
   <strong>Content:</strong>
   <%= @contact.content %>
 </p>
-
-<%= link_to 'Edit', edit_contact_path(@contact) %> |
-<%= link_to 'Back', contacts_path %>
+<button type="button" class="far fa-trash-alt btn btn-danger" btn-sm>
+  <%= link_to '削除する', @contact, method: :delete, data: { confirm: 'Are you sure?' } %></button>
+<%= link_to '戻る', managers_path %>
+</div>
