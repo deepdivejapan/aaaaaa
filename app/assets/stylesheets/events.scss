@@ -59,6 +59,13 @@ h1,h2,h3 {
     background-size: 100% 600px;
 }
 
+.image_phone{
+    max-width: 100%;
+    height: 200px;
+    background: image-url("FreeYoga.jpg") 0 0 no-repeat;
+    background-size: 100% 200px;
+}
+
 .wrapper{
   margin-top: 0px;
 }
@@ -161,4 +168,8 @@ input.font-awesome {
     margin-bottom: 0.2em;
     padding-bottom: 1em;
     background: #fff;
+}
+
+.search-box{
+    margin-bottom: 20px;
 }

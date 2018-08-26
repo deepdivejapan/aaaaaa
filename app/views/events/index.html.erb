@@ -1,9 +1,11 @@
 <%= notice %>
   <header>
     <div class="image_area visible-lg">
-    </div>  
+    </div> 
+    <div class="image_phone visible-xs visible-md visible-sm">
+    </div> 
     
-    <form class="center-block input-group small-devices form-inline">
+    <form class="center-block input-group small-devices form-inline search-box">
       <%= form_tag(events_path,:method => 'get') do %>
         <%= text_field_tag :search, params[:search], placeholder: "場所、開催日", :size =>'20' %>
         <button type="submit" class="button1 fas fa-search"></button>

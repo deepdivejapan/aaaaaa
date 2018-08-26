@@ -1,13 +1,18 @@
 <h1>イベントの詳細</h1>
-
-  <div class="center">
-    <%= image_tag @event.image, :size =>'320x320' %>
-    <p><%=link_to 'プロフィール',user_path(id: params[:id]) %></p>
-    <p>タイトル: <%= @event.title %></p>
-    <p>開催日: <%= @event.event_date %></p>
-    <p>場所: <%= @event.place %></p>
-    <div class="show_content"><%= @event.content%></div>
-    
-    <%= link_to '一覧に戻る', events_path %>
+  <div class= "event_show event_list">
+    <div class="center row">
+      <div class= "col-md-4 col-sm-4">
+        <%= image_tag @event.image, :size =>'240x240' %>
+      </div>  
+      <div class="center col-md-4 col-sm-4">
+        <%= @event.user.name %>
+        <p>タイトル: <%= @event.title %></p>
+        <p>開催日: <%= @event.event_date %></p>
+        <p>場所: <%= @event.place %></p>
+        <%= @event.content%>
+      </div> 
+    </div>   
   </div>
-  
+  <div class="center">
+  <%= link_to '一覧に戻る', events_path %>
+  </div>

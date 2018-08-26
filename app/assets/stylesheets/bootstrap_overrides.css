@@ -184,7 +184,7 @@ a{
     padding-top: 1.5em;
     margin: 0 auto;
     margin-bottom: 0.2em;
-    padding-bottom: 1em;
+    padding-bottom: 1.5em;
     background: #fff;
 }
 
@@ -256,4 +256,14 @@ label{
 
 .form-inline .input-group{
     margin-bottom: 10px;
+}
+
+.event_show{
+    width: 80%;
+    height: 100%;
+    padding-top: 1.5em;
+    margin: 0 auto;
+    margin-bottom: 0.2em;
+    padding-bottom: 1.5em;
+    background: #fff;
 }

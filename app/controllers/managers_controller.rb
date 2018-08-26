@@ -3,11 +3,11 @@ class ManagersController < ApplicationController
   before_action :guard_signup!, only: [:cancel, :new, :destroy, :create, :edit, :update]
   
   def index
-      @events = Event.all
-      @events = Event.search(params[:search])
-      @events = Event.page(params[:page]).per(5)
-      @contacts = Contact.all
-      @contacts = Contact.page(params[:page]).per(5)
+    @events = Event.all
+    @events = Event.search(params[:search])
+    @events = Event.page(params[:page]).per(5)
+    @contacts = Contact.all
+    @contacts = Contact.page(params[:page]).per(5)
   end
 
   def show
