@@ -20,12 +20,13 @@
           <span class="icon-bar"></span>
         </button>  
         <!--ここから上がハンバーガーメニューの描画-->
-        <div class="navbar-logo"><%=link_to image_tag('freelogo.jpg', :size =>'60x52'), '/' %></div>
-        
+        <div class="navbar-logo"><%=link_to image_tag('freelogo.jpg', :size =>'60x52'), '/' %>
+        </div>
+        <ul class="navbar-nav navbar-about">
+          <li class="col-sm"><%= link_to '初めての方へ', about_path %></li>
+        </ul>
         <div id="gnavi" class="collapse navbar-collapse"> <!--ここからがメニューリストの部分-->
           <ul class="nav navbar-nav">
-            <li class="col-sm"><%= link_to 'イベント一覧', events_path %></li>
-            
           <div class="app-header-inner nav navbar-nav">
             <% if logged_in? %>
               <li class="col-xs"><%= link_to '新しく投稿する', new_event_path %></li>
