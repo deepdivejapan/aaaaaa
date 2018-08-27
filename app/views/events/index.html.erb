@@ -2,8 +2,10 @@
   <header>
     <div class="image_area visible-lg">
     </div> 
-    <div class="image_phone visible-xs visible-md visible-sm">
+    <div class="image_phone visible-xs">
     </div> 
+    <div class="image_pad visible-md visible-sm">
+    </div>
     
     <form class="center-block input-group small-devices form-inline search-box">
       <%= form_tag(events_path,:method => 'get') do %>
@@ -16,15 +18,20 @@
     <% if event.allow == false  %>
       <div class= "container-fluid visible-xs visible-md visible-sm">
           <div class="center row">
-            <div class= "col-md-6 col-sm-6 col-xs-12">
-              <%=image_tag event.image , :size =>'240x240' %>
+            <div class= "col-md-4 col-sm-4 visible-xl visible-lg">
+              <%= image_tag event.image, :size =>'240x240' %>
+            </div> 
+            <div class= "col-md-4 col-sm-4 visible-md visible-sm">
+              <%=image_tag event.image , :size =>'180x180' %>
             </div>  
-          
-            <div class="center event_list col-md-6 col-sm-6 col-xs-12">
+            <div class= "visible-xs">
+              <%=image_tag event.image , :size =>'140x140' %>
+            </div> 
+            <div class="center event_list col-md-4 col-sm-4">
               <h2><%=link_to event.title, event_path(event.id)  %></h2>
               <h4><%= event.place %></h4>
               <%= event.event_date %>
-              <br><%=link_to '記事を読む', event_path(event.id) %>
+              <br><div class="event-box"><%=link_to '記事を読む', event_path(event.id) %></div>
             </div>  
           </div>
           
@@ -48,7 +55,7 @@
               <h2><%=link_to event.title, event_path(event.id)  %></h2>
               <h4><%= event.place %></h4>
               <%= event.event_date %>
-              <br><%=link_to '記事を読む', event_path(event.id) %>
+              <br><div class="event-box"><%=link_to '記事を読む', event_path(event.id) %></div>  
             </div>  
           </div>
           
