@@ -1,11 +1,17 @@
-<h1>Log in</h1>
-  <%= form_with(scope: :user_session, url: user_sessions_path, local: true) do |f| %>
+<div class="input-group small-devices form-inline center-block">   
+  <h1>Log in</h1>
+  <%= bootstrap_form_with(scope: :user_session, url: user_sessions_path, local: true) do |f|%>
 
-    <%= f.label :email %>
-    <%= f.email_field :email, size: "35" %>
+    <li class="event_form">
+    <%= f.email_field :email, size: "35", placeholder: "email" %>
+    </li>
   
-    <%= f.label :password %>
-    <%= f.password_field :password, size: "35" %>
-  
-    <%= f.submit "Log in" %>
+    <li class="event_form">
+    <%= f.password_field :password, size: "35", placeholder: "パスワード" %>
+    </li>
+    
+    <div class="button">
+    <input type="submit" type="button" class="btn-info center-block"value="ログインする" data-disable-with="ログイン中...">
+    </div>
   <% end %>
+</div>

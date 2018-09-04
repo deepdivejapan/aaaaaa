@@ -4,10 +4,10 @@ class UserSessionsController < ApplicationController
   end
   
   def create
-    user = User.find_by(email: params[:user_session][:email].downcase) #データベースから該当するレコードを検索
-    if user && user.authenticate(params[:user_session][:password])
-       session[:user_id] = user.id
-       redirect_to user_path(user.id)
+    @user = User.find_by(email: params[:user_session][:email].downcase) #データベースから該当するレコードを検索
+    if @user && @user.authenticate(params[:user_session][:password])
+       session[:user_id] = @user.id
+       redirect_to user_path(@user.id)
       else
         flash.now[:danger] = 'ログインに失敗しました'
         render 'new'
