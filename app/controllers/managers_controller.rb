@@ -19,7 +19,7 @@ class ManagersController < ApplicationController
     @event.allow = true
     @event.save
     flash[:success] = "イベントを承認しました！"
-    redirect_to managers_index_path
+    redirect_to managers_path
   end  
   
   def back
@@ -27,7 +27,7 @@ class ManagersController < ApplicationController
     @event.allow = false
     @event.save
     flash[:success] = "イベントを元に戻しました！"
-    redirect_to managers_index_path
+    redirect_to managers_path
   end  
   
   def destroy

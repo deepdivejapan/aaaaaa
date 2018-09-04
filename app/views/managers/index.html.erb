@@ -22,7 +22,7 @@
           <%= event.event_date %>
           <br><%=link_to '記事を読む', event_path(event.id) %>
           
-          <button type="button" class="btn btn-danger" btn-sm><%= link_to '削除する', event_path(event.id),method: :delete ,data:{ confirm: '本当に削除してよろしいですか？'}  %></button>
+            <button type="button" class="btn btn-danger" btn-sm><%= link_to '削除する', managers_path(event.id),method: :delete ,data:{ confirm: '本当に削除してよろしいですか？'}  %></button>
          
           <% if event.allow == true  %>  
             <button type="button" class="btn btn-default" btn-lg><%= link_to "戻す", back_managers_path(id: event.id), method: :post%></button>
@@ -46,7 +46,7 @@
           </div>  
         </div> 
         
-            <button type="button" class="btn btn-danger" btn-sm><%= link_to '削除する', event_path(event.id),method: :delete ,data:{ confirm: '本当に削除してよろしいですか？'}  %></button>
+          <button type="button" class="btn btn-danger" btn-sm><%= link_to '削除する', event_path(event.id),method: :delete ,data:{ confirm: '本当に削除してよろしいですか？'}  %></button>
         
         <% if event.allow == true  %>  
           <button type="button" class="btn btn-default" btn-lg><%= link_to "戻す", back_managers_path(id: event.id), method: :post%></button>

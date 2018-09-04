@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   
-  get 'managers/index'
+  # get 'managers/index'
 
-  get 'managers/show'
+  # get 'managers/show'
   
   
   devise_for :managers
